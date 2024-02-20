@@ -1,0 +1,72 @@
+﻿@model List<Employee>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Employee List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Employee" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create a New Employee Record
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <form asp-controller="Employee" asp-action="Index" method="get" class="form-inline">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="search" placeholder="Search by Name">
+                    <button type="submit" class="btn btn-outline-secondary">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Display Order</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th>Account Number</th>
+                    <th>Employee Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model.OrderBy(u => u.DisplayOrder))
+                {
+                    <tr>
+                        <td>@obj.Name</td>
+                        <td>@obj.DisplayOrder</td>
+                        <td>@obj.Phone</td>
+                        <td>@obj.Email</td>
+                        <td>@obj.Position</td>
+                        <td>@obj.Department</td>
+                        <td>@obj.AccNum</td>
+                        <td>@obj.EmpStatus</td>
+                        <td>
+                            <div class="w-150 btn-group" role="group">
+                                <a asp-controller="Employee" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                                <a asp-controller="Employee" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

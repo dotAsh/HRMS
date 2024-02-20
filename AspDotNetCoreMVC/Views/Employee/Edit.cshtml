@@ -1,0 +1,75 @@
+﻿@model Employee
+
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <row class="row pb-2">
+            <h2 class="text-primary">
+                Edit Employee Record
+            </h2>
+            <hr />
+        </row>
+
+        @*  <div asp-validation-summary="ModelOnly"></div> *@
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="DisplayOrder" class="p-0">Display Order</label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Phone" class="p-0">Phone</label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Email" class="p-0">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Position" class="p-0">Position</label>
+            <input asp-for="Position" class="form-control" />
+            <span asp-validation-for="Position" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3 row p-1">
+            <label asp-for="Department" class="p-0">Department</label>
+            <input asp-for="Department" class="form-control" />
+            <span asp-validation-for="Department" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="AccNum" class="p-0">AccNum</label>
+            <input asp-for="AccNum" class="form-control" />
+            <span asp-validation-for="AccNum" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="EmpStatus" class="p-0">EmpStatus</label>
+            <input asp-for="EmpStatus" class="form-control" />
+            <span asp-validation-for="EmpStatus" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Update</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Employee" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                    Back To List
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
